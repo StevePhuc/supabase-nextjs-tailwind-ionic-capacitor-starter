@@ -14,10 +14,12 @@ const Login = () => {
     await showLoading();
     try {
       // https://supabase.com/docs/reference/javascript/next/auth-signinwithotp
-      const { user, session, error } = await supabase.auth.signInWithOtp(
-        { email },
-        { emailRedirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000' }
-      );
+      const { user, session, error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000',
+        },
+      });
       // { email, password }
       console.log('user, session, error', user, session, error);
       await showToast({ message: 'Check your email for the login link!' });
@@ -32,10 +34,10 @@ const Login = () => {
     await showLoading();
     try {
       // https://supabase.com/docs/guides/auth/auth-google
-      const { user, session, error } = await supabase.auth.signInWithOAuth(
-        { provider: provider },
-        { redirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000' }
-      );
+      const { user, session, error } = await supabase.auth.signInWithOAuth({
+        provider: provider,
+        options: { redirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000' },
+      });
       await showToast({ message: 'Login with ' + provider });
     } catch (e) {
       await showToast({ message: e.error_description || e.message, duration: 5000 });
