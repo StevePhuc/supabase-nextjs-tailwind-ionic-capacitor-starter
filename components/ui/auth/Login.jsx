@@ -2,6 +2,7 @@
 import { useIonLoading, useIonToast } from '@ionic/react';
 import { useState } from 'react';
 import supabase from '../../../lib/supabase';
+import PageSimple from '../PageSimple';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,9 +21,8 @@ const Login = () => {
           emailRedirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000',
         },
       });
-      // { email, password }
       console.log('user, session, error', user, session, error);
-      await showToast({ message: 'Check your email for the login link!' });
+      await showToast({ message: 'Check your email for the login link!', duration: 10000 });
     } catch (e) {
       await showToast({ message: e.error_description || e.message, duration: 5000 });
     } finally {
@@ -38,7 +38,7 @@ const Login = () => {
         provider: provider,
         options: { redirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000' },
       });
-      await showToast({ message: 'Login with ' + provider });
+      await showToast({ message: 'Login with ' + provider, duration: 10000 });
     } catch (e) {
       await showToast({ message: e.error_description || e.message, duration: 5000 });
     } finally {
@@ -47,30 +47,37 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div>
-        <p>Sign in via magic link with your email below:</p>
+    <PageSimple title="Login">
+      <div className="flex min-h-full m-10 justify-center">
+        <div>
+          <div>
+            <p>Sign in via magic link with your email below:</p>
+          </div>
+          <form onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="jon@example.com"
+              value={email}
+              onChange={e => setEmail(e.target.value ?? '')}
+              className="text-black border border-1 block my-5 p-2"
+              style={{ minWidth: 250 }}
+            />
+            <button type="submit" className="px-4 py-2 bg-blue-400">
+              Sign In
+            </button>
+          </form>
+          <div>
+            <p className="my-5">OR</p>
+            <button
+              onClick={() => handleLoginProvider('google')}
+              className="px-4 py-2 bg-green-400"
+            >
+              Login with Google
+            </button>
+          </div>
+        </div>
       </div>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="jon@example.com"
-          value={email}
-          onChange={e => setEmail(e.target.value ?? '')}
-          className="text-black border border-1 block my-5 p-2"
-          style={{ minWidth: 250 }}
-        />
-        <button type="submit" className="px-4 py-2 bg-blue-400">
-          Sign In
-        </button>
-      </form>
-      <div>
-        <p className="my-5">OR</p>
-        <button onClick={() => handleLoginProvider('google')} className="px-4 py-2 bg-green-400">
-          Login with Google
-        </button>
-      </div>
-    </div>
+    </PageSimple>
   );
 };
 
