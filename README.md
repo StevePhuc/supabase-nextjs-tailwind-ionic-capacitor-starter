@@ -1,4 +1,4 @@
-# Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter
+# Supabase + Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter
 
 ![Screenshot](./screenshot.png)
 
