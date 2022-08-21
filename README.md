@@ -1,5 +1,26 @@
 # Supabase + Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter
 
+## Supabase Hackathon 5: https://www.madewithsupabase.com/launch-week-5
+- link to hosted demo: https://supabase-next-ionic.vercel.app/
+- list of team members github handles (and twitter if they have one) - any demo videos, instructions, or memes
+- a brief description of how you used Supabase:
+  to store data?
+  realtime?
+  auth?
+  storage?
+- any other info you want the judges to know (motivations/ideas/process)
+
+
+## Reference
+- https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter 
+
+## Quick Link
+- https://ionic.io/ionicons
+- https://supabase.com/docs/reference/javascript/next/
+- https://ionicframework.com/docs/components
+- https://capacitorjs.com/docs/ios
+- https://capacitorjs.com/docs/guides/deep-links
+
 ![Screenshot](./screenshot.png)
 
 This repo is a conceptual starting point for building an iOS, Android, and Progressive Web App with Next.js, Tailwind CSS, [Ionic Framework](https://ionicframework.com/), and [Capacitor](https://capacitorjs.com/).
