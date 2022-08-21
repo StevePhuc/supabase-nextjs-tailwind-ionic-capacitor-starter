@@ -12,7 +12,7 @@
 
 
 ## Reference
-- https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter 
+- https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter
 
 ## Quick Link
 - https://ionic.io/ionicons
@@ -20,6 +20,7 @@
 - https://ionicframework.com/docs/components
 - https://capacitorjs.com/docs/ios
 - https://capacitorjs.com/docs/guides/deep-links
+- https://devdactic.com/setup-deep-links-capacitor/ 
 
 ![Screenshot](./screenshot.png)
 
