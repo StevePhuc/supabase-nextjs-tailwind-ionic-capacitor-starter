@@ -2,11 +2,12 @@ import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/r
 import { StatusBar, Style } from '@capacitor/status-bar';
 
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Menu from './Menu';
 
 import Tabs from './pages/Tabs';
 import Home from './pages/Home';
+import Auth from './pages/Auth';
 
 setupIonicReact({});
 
@@ -26,6 +27,7 @@ const AppShell = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route exact path="/" render={() => <Home />} />
+            <Route exact path="/auth" render={() => <Auth />} />
             <Route path="/tabs" render={() => <Tabs />} />
           </IonRouterOutlet>
         </IonSplitPane>
