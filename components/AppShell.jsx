@@ -8,7 +8,7 @@ import Menu from './Menu';
 import Tabs from './pages/Tabs';
 import Home from './pages/Home';
 import Auth from './pages/Auth';
-import AppUrlListener from './AppUrlListener';
+import { useState } from 'react';
 
 setupIonicReact({});
 
@@ -24,7 +24,6 @@ const AppShell = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        <AppUrlListener></AppUrlListener>
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">

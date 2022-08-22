@@ -1,10 +1,15 @@
 // https://supabase.com/docs/guides/with-ionic-react
 import { useIonLoading, useIonToast } from '@ionic/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import supabase from '../../../lib/supabase';
 import PageSimple from '../PageSimple';
+import { Capacitor } from '@capacitor/core';
 
 const Login = () => {
+  const redirectTo = Capacitor.isNativePlatform()
+    ? process.env.NEXT_PUBLIC_REDIRECT_TO_NATIVE || 'supabasenextionic://'
+    : process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000';
+
   const [email, setEmail] = useState('');
 
   const [showLoading, hideLoading] = useIonLoading();
@@ -18,11 +23,11 @@ const Login = () => {
       const { user, session, error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          emailRedirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000',
+          emailRedirectTo: redirectTo,
         },
       });
       console.log('user, session, error', user, session, error);
-      await showToast({ message: 'Check your email for the login link!', duration: 10000 });
+      await showToast({ message: 'Check your email for the login link!', duration: 5000 });
     } catch (e) {
       await showToast({ message: e.error_description || e.message, duration: 5000 });
     } finally {
@@ -36,9 +41,10 @@ const Login = () => {
       // https://supabase.com/docs/guides/auth/auth-google
       const { user, session, error } = await supabase.auth.signInWithOAuth({
         provider: provider,
-        options: { redirectTo: process.env.NEXT_PUBLIC_REDIRECT_TO || 'http://localhost:3000' },
+        options: { redirectTo },
       });
-      await showToast({ message: 'Login with ' + provider, duration: 10000 });
+
+      await showToast({ message: 'Login with ' + provider, duration: 5000 });
     } catch (e) {
       await showToast({ message: e.error_description || e.message, duration: 5000 });
     } finally {
