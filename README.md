@@ -1,15 +1,23 @@
 # Supabase + Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter
 
-## Supabase Hackathon 5: https://www.madewithsupabase.com/launch-week-5
+## Supabase Hackathon 5: 
+- https://www.madewithsupabase.com/launch-week-5
 - link to hosted demo: https://supabase-next-ionic.vercel.app/
-- list of team members github handles (and twitter if they have one) - any demo videos, instructions, or memes
+- list of team members github handles:
+  - https://github.com/StevePhuc (https://twitter.com/StevePhucDev)
 - a brief description of how you used Supabase:
-  to store data?
-  realtime?
-  auth?
-  storage?
-- any other info you want the judges to know (motivations/ideas/process)
+  - Auth: Supabase Auth Cross Platform for WebApp, iOS, Android with Deep Link.
+  - Supabase + Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile Starter
+- any other info you want the judges to know:
+  - Auth for app web with support of supabase is easy than ever but it is not easy implement cross platform with deep link. 
+  - Before I used react native but in some case I prefer web app more and there is a nextjs-tailwind-ionic-capacitor-starter so I implement supabase auth for it
+  -  I or anyone want to start a new cross platform can now use Supabase + Next.js + Tailwind CSS + Ionic Framework + Capacitor Mobile. 
 
+## Auth in WebApp:
+- Demo: https://supabase-next-ionic.vercel.app/
+
+## Auth in iOS, Android:
+- Demo: ![supabase-nextjs-ionic](./supabase-nextjs-ionic.gif)
 
 ## Reference
 - https://github.com/mlynch/nextjs-tailwind-ionic-capacitor-starter
@@ -17,12 +25,16 @@
 ## Quick Link
 - https://ionic.io/ionicons
 - https://supabase.com/docs/reference/javascript/next/
+- https://supabase.com/docs/guides/with-ionic-react
 - https://ionicframework.com/docs/components
 - https://capacitorjs.com/docs/ios
 - https://capacitorjs.com/docs/guides/deep-links
-- https://devdactic.com/setup-deep-links-capacitor/ 
+- https://devdactic.com/setup-deep-links-capacitor/
+- https://github.com/EddyVerbruggen/Custom-URL-scheme 
 
 ![Screenshot](./screenshot.png)
+
+![Supabase-Auth](./supabase-auth.png)
 
 This repo is a conceptual starting point for building an iOS, Android, and Progressive Web App with Next.js, Tailwind CSS, [Ionic Framework](https://ionicframework.com/), and [Capacitor](https://capacitorjs.com/).
 
